@@ -1,0 +1,20 @@
+name: Keep my Duolingo streak Diego
+
+on:
+  schedule:
+    - cron: '0 9 * * *'
+
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: node index.js
+        env:
+          DUOLINGO_JWT: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjYzMDcyMDAwMDAsImlhdCI6MCwic3ViIjoxMjU2NDY4NjExfQ.geiaytBjgVIWq-lnDgHStOXIkPE1jIJYsEKDWhYLhy0"
+          LESSONS: 80
