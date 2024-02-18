@@ -116,7 +116,7 @@ var lessonsdone = 0;
 		).then((response) => response.json());
 
 		xp += response.xpGain;
-		var totalExp = process.env.LESSONS * 20;
+		var totalExp = process.env.LESSONS * response.xpGain;
    lessonsdone = lessonsdone + response.xpGain;
    var percentaged = lessonsdone / totalExp;
    var percentage = percentaged * 100;
