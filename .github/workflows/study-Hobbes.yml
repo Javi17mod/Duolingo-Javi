@@ -1,0 +1,25 @@
+name: Do a Duolingo lesson hobbes
+
+on:
+  workflow_dispatch:
+    inputs:
+      lessons:
+        default: 1
+        description: 'Number of lessons to be completed'
+        required: false
+        type: number
+
+jobs:
+  study:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: node index.js
+        env:
+          DUOLINGO_JWT: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjYzMDcyMDAwMDAsImlhdCI6MCwic3ViIjoxMDAwNjY0MzA4fQ.4OqSiRuyYvWR1PKKVLKi0Cjrm7xmI4RWQXhhct8Cobw'
+          LESSONS: ${{ inputs.lessons }}
