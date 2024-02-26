@@ -2,7 +2,7 @@ name: Keep my Duolingo streak hobbes
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 9 * * *'
 
 jobs:
   study:
@@ -17,4 +17,4 @@ jobs:
       - run: node index.js
         env:
           DUOLINGO_JWT: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjYzMDcyMDAwMDAsImlhdCI6MCwic3ViIjoxMDAwNjY0MzA4fQ.4OqSiRuyYvWR1PKKVLKi0Cjrm7xmI4RWQXhhct8Cobw'
-          LESSONS: 50000
+          LESSONS: 50
