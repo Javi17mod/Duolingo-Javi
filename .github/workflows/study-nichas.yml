@@ -1,4 +1,4 @@
-name: Do a Duolingo lesson Diego
+name: Do a Duolingo lesson Nichas
 
 on:
   workflow_dispatch:
