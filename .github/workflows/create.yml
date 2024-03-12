@@ -1,0 +1,36 @@
+name: Setup Duolingo Lesson
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Name for the workflow'
+        required: true
+      token:
+        description: 'GitHub token for accessing secrets'
+        required: true
+
+jobs:
+  setup:
+    name: Setup Duolingo Lesson
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '12'
+
+      - name: Create Workflow
+        run: |
+          echo "name: Do a Duolingo lesson\n\non:\n  workflow_dispatch:\n    inputs:\n      lessons:\n        default: 1\n        description: 'Number of lessons to be completed'\n        required: false\n        type: number\n\njobs:\n  study:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v4\n\n      - uses: actions/setup-node@v4\n        with:\n          node-version: 20\n\n      - run: node index.js\n        env:\n          DUOLINGO_JWT: \${{ secrets.DUOLINGO_JWT }}\n          LESSONS: \${{ inputs.lessons }}" > .github/workflows/duolingo_lesson.yaml
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "Add duolingo lesson workflow"
+          git push
