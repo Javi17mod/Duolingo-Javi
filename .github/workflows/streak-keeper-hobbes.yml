@@ -16,5 +16,5 @@ jobs:
 
       - run: node index.js
         env:
-          DUOLINGO_JWT: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjYzMDcyMDAwMDAsImlhdCI6MCwic3ViIjoxMDAwNjY0MzA4fQ.4OqSiRuyYvWR1PKKVLKi0Cjrm7xmI4RWQXhhct8Cobw'
+          DUOLINGO_JWT: ${{ secrets.DUOLINGO_JWT_HOBBES }}
           LESSONS: 50
