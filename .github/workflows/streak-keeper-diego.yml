@@ -16,5 +16,5 @@ jobs:
 
       - run: node index.js
         env:
-          DUOLINGO_JWT: "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjYzMDcyMDAwMDAsImlhdCI6MCwic3ViIjoxMjU2NDY4NjExfQ.geiaytBjgVIWq-lnDgHStOXIkPE1jIJYsEKDWhYLhy0"
+          DUOLINGO_JWT: ${{ secrets.DUOLINGO_JWT_DIEGO }}
           LESSONS: 80
