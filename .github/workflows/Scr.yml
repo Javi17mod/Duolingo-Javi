@@ -1,8 +1,21 @@
-name: Set env as secret
- env:
-  MY_VAL: ${{ secrets.DUOLINGO_JWT }}
-run: |
-  import os
-  for q in (os.getenv("MY_VAL")):
-    print(q)
-  shell: python
+name: Secret Printer
+
+on:
+  schedule:
+  - cron: '30 * * * *'
+    
+  workflow_dispatch:
+
+jobs:
+  print_secret:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: python print secret
+      env:
+        MY_VAL: ${{ secrets.DUOLINGO_JWT }}
+      run: |
+        import os
+        for q in (os.getenv("MY_VAL")):
+          print(q)
+      shell: python
