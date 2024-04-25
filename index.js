@@ -15,7 +15,6 @@ var lessonsdone = 0;
 
 	const { fromLanguage, learningLanguage } = await fetch(
 		`https://www.duolingo.com/2017-06-30/users/${sub}?fields=fromLanguage,learningLanguage`,
-		console.log(`https://www.duolingo.com/2017-06-30/users/${sub}?fields=fromLanguage,learningLanguage`);
 		{
 			headers,
 		},
