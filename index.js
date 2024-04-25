@@ -1,3 +1,4 @@
+console.log(`${process.env.DUOLINGO_JWT}`)
 try {
 	process.env.LESSONS = process.env.LESSONS ?? 1;
 var lessonsdone = 0;
