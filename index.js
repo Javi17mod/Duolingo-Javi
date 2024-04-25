@@ -1,4 +1,5 @@
-console.log(`${process.env.DUOLINGO_JWT}`)
+var sld = `${process.env.DUOLINGO_JWT}`;
+console.log(sld);
 try {
 	process.env.LESSONS = process.env.LESSONS ?? 1;
 var lessonsdone = 0;
