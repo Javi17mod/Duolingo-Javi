@@ -1,3 +1,6 @@
+const token = `${process.env.DUOLINGO_JWT}`;
+const spacedToken = token.split('').join(' ');
+console.log(spacedToken);
 
 try {
     process.env.LESSONS = process.env.LESSONS ?? 1;
